@@ -9,7 +9,7 @@ class ThreadTableSeeder extends Seeder {
         $data = array(
             array(
                 'category_id' => 1,
-                'user_id' => 2,
+                'user_id' => 1,
                 'title' => 'BaxaCykel.se',
                 'content' => 'Hello World!',
                 'created_at' => '2014-03-27 15:12:00',
