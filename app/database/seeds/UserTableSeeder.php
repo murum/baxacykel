@@ -10,25 +10,15 @@ class UserTableSeeder extends Seeder {
 
         $data = array(
             array(
-                'username' => 'murum',
-                'password' => Hash::make('hello123'),
-                'email' => 'christoffer@baxacykel.se',
+                'username' => 'admin',
+                'password' => Hash::make('HelloWorld123'),
+                'email' => 'admin@baxacykel.se',
                 'money' => 0,
                 'bikes' => 0,
                 'garage_id' => 1,
                 'town_id' => 1,
                 'role_level' => 1,
             ),
-            array(
-                'username' => 'john',
-                'password' => Hash::make('password'),
-                'email' => 'john@baxacykel.se',
-                'money' => 0,
-                'bikes' => 0,
-                'garage_id' => 1,
-                'town_id' => 2,
-                'role_level' => 8,
-            )
         );
 
 
