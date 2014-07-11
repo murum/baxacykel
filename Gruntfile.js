@@ -38,12 +38,7 @@ module.exports = function(grunt) {
         files: {
           './public/assets/javascript/frontend.js': './public/assets/javascript/frontend.js',
         }
-      },
-      backend: {
-        files: {
-          './public/assets/javascript/backend.js': './public/assets/javascript/backend.js',
-        }
-      },
+      }
     },
     watch: {
       js_frontend: {
