@@ -1,4 +1,6 @@
 /bootstrap/compiled.php
+/public/assets/stylesheets
+/public/assets/javascript
 /vendor
 /node_modules
 /bower_components
