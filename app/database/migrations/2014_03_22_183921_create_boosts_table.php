@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateBoostsTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('boosts', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name');
+			$table->integer('type')->unsigned();
+			$table->integer('pedals')->unsigned();
+			$table->integer('length')->unsigned();
+			$table->timestamps();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('boosts');
+	}
+
+}

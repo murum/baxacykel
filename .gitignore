@@ -1,0 +1,14 @@
+/bootstrap/compiled.php
+/vendor
+/node_modules
+composer.phar
+composer.lock
+.env.local.php
+.env.php
+.DS_Store
+Thumbs.db
+/storage/logs
+_ide_helper.php
+.idea
+.idea/
+.idea/workspace.xml

@@ -1,0 +1,1150 @@
+@import 'base.less';
+@import "responsive.less";
+
+/* 
+ * HEADINGS
+ ****************/
+
+h1,h2,h3,h4,h5,h6 {
+	margin: @default-margin 0 0;
+}
+
+.modal {
+	color: @gray-dark;
+}
+
+/* 
+ * START
+ ****************/
+.jumbotron {
+	padding: @default-padding;
+	color: @gray-dark;
+}
+
+.guide {
+	p {
+		text-align: left;
+		font-size: 1em;
+	}
+
+	h2,h3,h4 {
+		text-align: left;
+		margin: @default-margin 0 (@default-margin / 6);
+	}
+}
+
+.amount-storage,
+.amount-market {
+	cursor: pointer;
+
+	&:hover {
+		background: darken(#fff, 5%);
+	}
+}
+
+.startpage {
+	form {
+		margin: (@default-margin * 2) 0 0;
+	}
+}
+
+.terms-rules {
+	font-size: 1em;
+	h3,h4 {
+		margin: 15px 0 5px;
+	}
+
+	p {
+		font-size: 14px;
+		font-family: @font-family-serif;
+		margin: 0 0 15px;
+	}
+}
+
+/* 
+ * CHANGELOG
+ ****************/
+.changelog {
+	h2,
+	h3 {
+		color: @gray;
+	}
+	dl {
+		line-height: 1.5em;
+		dt {
+			margin-top: @default-margin;
+			font-weight: normal;
+
+			strong {
+				font-weight: 700;
+			}
+		}
+		dd {
+			margin-left: 20px;
+		}
+	}
+}
+
+
+/* 
+ * GAME STATUS
+ ****************/
+.release-status {
+	.dev-bug {
+		margin-top: 17px;
+	}
+}
+
+.inlogged-users {
+	padding-top: 22px;
+}
+
+div.cooldown-fixed {
+	position: fixed;
+	z-index: 20;
+	top: 0;
+	left: 0;
+
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.jumbotron-dev-bug {
+	h2 {
+		color: @gray-dark;
+	}
+
+	.progress {
+		background: #ccc;
+
+		border-radius: 3px;
+
+		-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+		box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+
+		.progress-bar {
+			color: #fff;
+			font-weight: bold;
+		}
+	}
+}
+
+/* 
+ * CHAT
+ ****************/
+body.chat-body {
+	background: #fff;
+	color: #000;
+
+	.container {
+		width: 620px;
+		height: 100%;
+	}
+
+	div.messages {
+		padding: 0;
+		height: 420px;
+
+		overflow-y: scroll;
+		overflow-x: hidden;
+
+		li.message {
+			text-align: left;
+
+            &.right {
+              text-align: right;
+
+              h6.chat-username {
+                float: right;
+                margin-left: 12px;
+              }
+
+              div.chat-meta {
+                span.chat-meta-time {
+                  float: right;
+                }
+              }
+
+              span.chat-speech-bubble {
+
+                &:before {
+                  right: 20px;
+                }
+
+                &.top-left {
+                  &:before {
+                    left: auto;
+                    right: 20px;
+                  }
+                }
+              }
+            }
+
+			h6.chat-username {
+                float: left;
+				color: @gray;
+				font-size: 1em;
+				margin-top: 0;
+
+				&.admin {
+                  a {
+					color: @brand-danger;
+                  }
+				}
+
+				&.moderator {
+                  a {
+					color: @brand-info;
+                  }
+				}
+			}
+
+			div.chat-meta {
+				font-size: 0.75em;
+                margin-bottom: 5px;
+                padding-top: 5px;
+
+              h6 {
+                line-height: 1.1em;
+                margin-right: 12px;
+
+                a {
+                  font-size: 1.25em;
+                  margin-left: 2px;
+                }
+              }
+
+              span.chat-meta-time {
+                float: left;
+                line-height: 1.4em;
+
+                .fa {
+                  margin-right: 4px;
+                }
+              }
+			}
+
+            span.chat-speech-bubble {
+              position: relative;
+              display: inline-block;
+              padding: 8px 16px;
+              margin: 0.5em 0 1.5em;
+              background: @state-info-bg;
+              color: @state-info-text;
+              -webkit-border-radius: 10px;
+              -moz-border-radius: 10px;
+              border-radius: 10px;
+
+              &:before {
+                content: "";
+                position: absolute;
+                bottom: -8px;
+                left: 20px;
+                border-width: 8px 8px 0;
+                border-style: solid;
+                border-color: @state-info-bg transparent;
+                display: block;
+                width: 0;
+              }
+
+              &.top-left {
+                &:before {
+                  top: -8px;
+                  bottom: auto;
+                  right: auto;
+                  left: 20px;
+                  border-width: 0 8px 8px;
+                }
+              }
+            }
+		}
+	}
+	div.add-message {
+		border-top: 1px solid @gray-light;
+		position: fixed;
+		bottom: 0;
+		width: 93%;
+		z-index: 5;
+
+		.chat-submit {
+			margin: 6px -15px;
+		}
+	}
+}
+
+div.chat {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+
+	#show-chat {
+		position: relative;		
+
+		span.new-message {
+			background: @brand-danger;
+			border-radius: 100%;
+			display: inline-block;
+			line-height: 35px;
+			height: 35px;
+			width: 35px;
+			font-size: 1.4em;
+			font-weight: bold;
+			position: absolute;
+			top: -23px;
+			left: -23px;
+		}
+	}
+
+	#hide-chat,
+	.chat-container {
+		display: none;
+	}
+	.chat-container {
+		background: #fff url('../images/ajax-loader.gif') no-repeat center center;
+	}
+}
+
+
+
+/* 
+ * GAME MENU
+ ****************/
+.game-menu {
+	background: #cdcccc;
+	margin: 0 0 (@default-margin * 2);
+	padding: (@default-padding / 2) 0;
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			a {
+				display: block;
+
+				height: 48px;
+				padding: 18px 0;
+				padding-left: 72px;
+
+				font-family: @font-family-monospace;
+				color: @gray;
+				font-weight: bold;
+				text-transform: uppercase;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&.baxa {
+					background: transparent url(../images/baxa.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/baxa-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/baxa-active.png);
+					}
+				}
+
+				&.dealer {
+					background: transparent url(../images/dealer.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/dealer-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/dealer-active.png);
+					}
+				}
+
+				&.market {
+					background: transparent url(../images/market.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/market-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/market-active.png);
+					}
+				}
+
+				&.travel {
+					background: transparent url(../images/travel.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/travel-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/travel-active.png);
+					}
+				}
+
+				&.quarter {
+					background: transparent url(../images/quarter.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/quarter-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/quarter-active.png);
+					}
+				}
+
+				&.school {
+					background: transparent url(../images/school.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/school-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/school-active.png);
+					}
+				}
+
+				&.garage-icon {
+					background: transparent url(../images/garage-icon.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/garage-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/garage-active.png);
+					}
+				}
+
+				&.pedalshop {
+					background: transparent url(../images/pedalshop.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/pedalshop-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/pedalshop-active.png);
+					}
+				}
+
+				&.toplist {
+					background: transparent url(../images/toplist.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/toplist-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/toplist-active.png);
+					}
+				}
+				&.forum {
+					background: transparent url(../images/forum.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/forum-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/forum-active.png);
+					}
+				}
+
+				&.club {
+					background: transparent url(../images/club.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/club-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/club-active.png);
+					}
+				}
+
+				&.guide {
+					background: transparent url(../images/guide.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/guide-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/guide-active.png);
+					}
+				}
+
+				&.faq {
+					background: transparent url(../images/faq.png) 5px center no-repeat;
+
+					&:hover {
+						color: @brand-danger;
+						background-image: url(../images/faq-hover.png);
+					}
+
+					&.active {
+						color: @gray-dark;
+						background-image: url(../images/faq-active.png);
+					}
+				}
+			}
+		}
+	}
+}
+
+.game-menu-small {
+	margin-bottom: 0;
+	border-bottom: 1px solid @gray-dark;
+}
+
+/* 
+ * SIDEBAR MENU
+ ****************/
+h1, h2, h3, h4 {
+	color: @text-color-light;
+}
+
+.pedalshop-link,
+.club-link,
+.message-link {
+	&:hover {
+		text-decoration: none;
+
+		.left-sidebar {
+			color: @brand-info;
+		}
+
+		.club-stats {
+			background: @gray-dark url('../images/club-link-hover.png') 7px center no-repeat;
+		}
+
+		.message-stats {
+			background: @gray-dark url('../images/forum-hover.png') 7px center no-repeat;
+		}
+
+		.pedals-stats {
+			background: @gray-dark url('../images/pedalshop-active.png') 5px center no-repeat;
+		}
+	}
+}
+
+.left-sidebar {
+	background: @gray-dark;
+	color: @text-color-light;
+
+	font-family: @font-family-monospace;
+	padding: 15px;
+	margin: 0 -15px @default-margin;
+	text-align: center;
+
+	img {
+		text-align: center;
+	}
+
+	h4 {
+		margin: 0;
+	}
+
+	.progress {
+		margin: 0;
+	}
+
+	.skills {
+		font-family: @font-family-sans-serif;
+	}
+
+	&.money-stats,
+	&.garage-stats,
+	&.vehicle-stats,
+	&.storage-stats,
+	&.town-stats,
+	&.club-stats,
+	&.pedals-stats,
+	&.message-stats {
+		text-align: right;
+		font-size: 0.875em;
+		font-family: @font-family-sans-serif;
+	}
+
+	&.money-stats {
+		background: @gray-dark url('../images/money.png') 5px center no-repeat;
+	}
+
+	&.garage-stats {
+		background: @gray-dark url('../images/garage.png') 5px center no-repeat;
+	}
+
+	&.vehicle-stats {
+		background: @gray-dark url('../images/vehicle-white.png') 5px center no-repeat;
+	}
+
+	&.storage-stats {
+		background: @gray-dark url('../images/storage-white.png') 5px center no-repeat;
+	}
+
+	&.town-stats {
+		background: @gray-dark url('../images/travel-white.png') 5px center no-repeat;
+	}
+
+	&.club-stats {
+		background: @gray-dark url('../images/club-white.png') 7px center no-repeat;
+	}
+
+	&.message-stats {
+		background: @gray-dark url('../images/forum-white.png') 7px center no-repeat;
+	}
+
+	&.pedals-stats {
+		background: @gray-dark url('../images/pedals.png') 5px center no-repeat;
+	}
+}
+
+.message-link.has-unread {
+
+	.left-sidebar.message-stats {
+		color: @brand-danger;
+		background: @gray-dark url('../images/forum-unread.png') 7px center no-repeat;
+	}
+}
+
+.club-link.has-unread {
+
+	.left-sidebar.club-stats {
+		color: @brand-danger;
+		background: @gray-dark url('../images/club-hover.png') 7px center no-repeat;
+	}
+}
+
+.sidebar-menu {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+/* 
+ * USER STATS
+ ****************/
+.username {
+	margin: 0;
+}
+.skills {
+	margin: (@default-margin / 2) 0;
+}
+.pedal-tip {
+	margin-top: (@default-margin / 2);
+}
+
+/* 
+ * CHOOSE TOWN
+ ****************/
+div.towns {
+	form {
+		margin: @default-margin 0 0 0;
+	}
+}
+
+/* 
+ * NPCS
+ ****************/
+ul.npcs {
+	color: @gray;
+
+	li {
+	 	margin: 0 0 @default-margin;
+
+	 	height: 320px;
+	 	max-height: 320px;
+
+	 	header,
+	 	footer,
+	 	.information {
+
+	 		h3 {
+	 			margin: 0;
+				text-transform: uppercase;
+	 		}
+
+	 		.npc-description {
+	 			margin: 0 0 @default-margin 0;
+	 		}
+	 	}
+
+	 	header {
+	 		padding: @default-padding;
+			background: @gray-dark;
+			color: #fff;
+			position: relative;
+
+			.required-level {
+				text-align: center;
+				padding: 0 (@default-padding / 2);
+				font-size: 1.3em;
+				line-height: 1.5em;
+
+				position: absolute;
+				top: @default-padding;
+				right: -10px;
+			}
+		}
+
+		.information {
+			background: #fff;
+			padding: @default-padding;
+
+			.label {
+				margin: 0 (@default-margin / 3) 0 0;
+			}
+		}
+
+		footer {
+			background: #fff;
+			margin: 0 0 @default-margin;
+		}
+	}
+}
+
+/* 
+ * Dealers
+ ****************/
+ul.dealers {
+	color: @gray;
+
+	li {
+	 	margin: 0 0 @default-margin;
+
+	 	height: 320px;
+	 	max-height: 320px;
+
+	 	header,
+	 	footer,
+	 	.information {
+	 		background: #fff;
+	 		padding: 0;
+
+	 		h3 {
+	 			margin: 0;
+				text-transform: uppercase;
+	 		}
+	 	}
+
+	 	header {
+	 		padding: @default-padding;
+	 		background: @gray-dark;
+			color: #fff;
+			position: relative;
+
+			.required-bikes {
+				text-align: center;
+				padding: 0 (@default-padding / 2);
+				font-size: 1.3em;
+				line-height: 1.5em;
+
+				position: absolute;
+				top: @default-padding;
+				right: -15px;
+			}
+		}
+
+		.information {
+			padding: @default-padding;
+			.dealer-stats {
+				.row {
+					margin-top: (@default-margin / 2);
+				}
+				.label {
+					margin: 0 (@default-margin / 3) 0 0;
+				}
+			}
+
+		}
+
+		footer {
+			margin: 0 0 @default-margin;
+		}
+	}
+}
+
+/* 
+ * Courses
+ ****************/
+ul.courses {
+	color: @gray;
+
+	li {
+	 	margin: 0 0 @default-margin;
+
+	 	height: 320px;
+	 	max-height: 320px;
+
+	 	header,
+	 	footer,
+	 	.information {
+	 		background: #fff;
+	 		padding: 0;
+
+	 		h3 {
+	 			margin: 0;
+				text-transform: uppercase;
+	 		}
+	 	}
+
+	 	header {
+	 		padding: @default-padding;
+			background: @gray-dark;
+			color: #fff;
+		}
+
+		.information {
+			background: #fff;
+	 		padding: @default-padding;
+
+	 		.course-stats {
+				.row {
+					margin-top: (@default-margin / 2);
+				}
+				.label {
+					margin: 0 (@default-margin / 3) 0 0;
+				}
+			}
+		}
+
+		footer {
+			margin: 0 0 @default-margin;
+		}
+	}
+}
+
+/* 
+ * MITT KVARTER
+ ****************/
+div.my-quarter {
+	h1,h2,h3,h4,h5,p {
+		color: @gray;
+		margin: (@default-margin / 2) 0 (@default-margin / 3) 0;
+	}
+
+	ul,ol, dl {
+		color: @gray;
+	}
+
+	div.quarter-content {
+		background: #fff;
+		padding: @default-padding;
+
+		span.label {
+			font-size: 0.75em;
+			margin: 0 (@default-margin / 3) 0 0;
+		}
+		
+		div.panel-default {
+			border-color: #ddd;
+
+			>div.panel-heading {
+
+				color: @gray;
+				background-color: #f5f5f5;
+				border-color: #ddd;
+
+				h1,h2,h3,h4,h5 {
+					color: @gray;
+					margin: 0;
+				}
+			}
+		}
+	}
+	
+	/* 
+	 * NUVARANDE GARAGE
+	 ****************/
+
+	div.current-garage {
+	}
+}
+
+div.user-profile {
+	-ms-word-break: break-all;
+	 word-break: break-all;
+
+	 // Non standard for webkit
+	 word-break: break-word;
+
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
+/* 
+ * FORUMS
+ ****************/
+div.add-thread {
+	margin-top: @default-margin;
+}
+
+
+/* 
+ * TRÅD
+ ****************/
+div.thread,
+div.post-first,
+div.post {
+	background: #fff;
+	color: @gray;
+	margin: @default-margin 0;
+
+ 	header,
+ 	footer,
+ 	.information {
+
+ 		h3 {
+ 			margin: 0;
+			text-transform: uppercase;
+ 		}
+ 	}
+
+ 	header {
+ 		padding: @default-padding;
+		background: @gray-dark;
+		color: #fff;
+		position: relative;
+	}
+
+	.information {
+		background: #fff;
+		padding: @default-padding;
+
+		.label {
+			margin: 0 (@default-margin / 3) 0 0;
+		}
+
+		h3 {
+			color: @gray;
+			text-transform: none;
+		}
+
+		.post-user {
+			border-right: 1px solid @gray;
+		}
+	}
+
+	footer {
+		background: #fff;
+		margin: 0 0 @default-margin;
+	}
+}
+
+
+/* 
+ * Club
+ ****************/
+ul.club-members {
+	li {
+		margin: (@default-margin / 2) 0;
+
+		overflow: auto;
+
+		&:nth-child(2n) {
+			a.club-member {
+				background: darken(#fff, 8%);
+
+				&:hover {
+					text-decoration: none;
+					background: darken(#fff, 12%);
+				}
+			}
+		}
+
+		.btn {
+			margin-top: 5px;
+		}
+
+		a.club-member {
+			padding: (@default-padding / 2);
+			color: @gray-dark;
+
+			width: 90%;
+			display: block;
+			float: left;
+
+			&:hover {
+				text-decoration: none;
+				background: darken(#fff, 4%);
+			}
+		}
+	}
+}
+
+
+/* 
+ * MEDDELANDEN
+ ****************/
+div.messages {
+	table.user-messages {
+		tr {
+			cursor: pointer;
+
+			&:nth-child(2n) {
+				display: none;
+			}
+
+			&.unread {
+				font-weight: bold;
+			}
+
+			&.visible {
+				display: table-row;
+			}
+
+			p {
+				-ms-word-break: break-all;
+				 word-break: break-all;
+
+				 // Non standard for webkit
+				 word-break: break-word;
+
+				-webkit-hyphens: auto;
+				-moz-hyphens: auto;
+			    hyphens: auto;
+			}
+		}
+	}
+}
+
+/* 
+ * PEDAL SHOP
+ ****************/
+.pedal-tabs {
+	header {
+		font-size: @font-size-h3;
+		text-transform: uppercase;
+	}
+
+	.information {
+		padding: @default-padding;
+		background: #fff;
+		color: @gray;
+	}
+
+	.tab-pane {
+		padding: 0;
+
+		h2,h3 {
+			&:first-child {
+				margin: 0;
+			}
+
+			margin: @default-margin 0 0 0;
+			color: @gray;
+		}
+	}
+}
+
+/* 
+ * TOPLISTS
+ ****************/
+ul.users-toplist,
+ul.clubs-toplist {
+	font-size: 1.5em;
+	font-weight: 300;
+
+	li {
+		line-height: 1.5em;
+	}
+
+	i {
+		font-size: 0.75em;
+		margin-right: 6px;
+	}
+}
+
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+	.game-menu {
+		ul {
+			li {
+				a {
+					display: block;
+					float: left;
+
+					height: 60px;
+					padding: 18px 0;
+					padding-left: 60px;
+				}
+			}
+		}
+	}
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	ul.dealers,
+	ul.npcs,
+	ul.garages,
+	ul.courses {
+		li {
+			height: auto;
+			max-height: none;
+		}
+	}
+
+	ul.dealers {
+		li {
+			header {
+				.required-bikes {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
